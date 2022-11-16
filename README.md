@@ -16,7 +16,7 @@ The goals of this session are to (1) equip you with conceptual knowledge about t
 
 ## Instructors
 
-- Daniel Brito ([website](http://simonmunzert.github.io/), [twitter](https://twitter.com/simonsaysnothin))
+- Daniel Brito
 - Shruthi Naik 
 
 
