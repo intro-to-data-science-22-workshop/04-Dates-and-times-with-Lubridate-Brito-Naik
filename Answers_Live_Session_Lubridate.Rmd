@@ -1,0 +1,166 @@
+---
+title: "Exercise - Dates and times with Lubridate"
+subtitle: "Live Session"
+output: 
+  html_document:
+    toc: TRUE
+    df_print: paged
+    number_sections: FALSE
+    highlight: tango
+    theme: lumen
+    toc_depth: 3
+    toc_float: true
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Welcome!
+
+In this session we are going to work with **DATES** and **TIMES** with the **LUBRIDATE** package!
+
+Why do we need a package for that?
+
+- Dates come in different forms and shapes:
+  - 01.09.2022
+  - 01/09/22
+  - 09-01-2022
+  - SEP-09-22
+  - September, 09, 2022
+  - 09 SEP 22
+  
+- Many details for dates and time:
+  - Lead years
+  - Daylight savings time (DST) 
+  - Time zones
+
+- For doing calculations with dates
+
+## Load packages for this exercise ## 
+
+```{r}
+
+library(lubridate)
+library(tidyverse)
+
+```
+
+## Date and time objects ## 
+
+How do we find out today's date?
+
+```{r}
+
+today <- today()
+today
+
+```
+
+How can we find out the current date and time?
+
+```{r}
+
+now <- now()
+now
+
+```
+
+How do we create one date and one datetime to show 12:00 pm on the 1st of August 2015?
+
+```{r}
+
+date_1 <- "2015 08 01 12:00:00"
+
+date_2 <- as_date(date_1)
+date_2
+
+datetime_3 <- ymd_hms(date_1)
+datetime_3
+
+```
+
+How do we tell R these are dates? 
+
+"1956 Jun 20"
+
+```{r}
+
+ymd("1956 JUN 20")
+
+```
+
+
+"14.07.2023"
+
+```{r}
+
+dmy("14.07.2023")
+
+```
+
+How do we tell R this has a date and time?
+
+"14072003153000"
+
+```{r}
+
+dmy_hms("14072003153000")
+
+```
+
+## Extracting components for date and time ##
+
+Extract the unabbreviated name of the month and the abbreviated day of the week for "14072003153000"
+
+```{r}
+
+extracted_date <- dmy_hms("14072003153000")
+
+month(extracted_date, label = TRUE, abbr = FALSE)
+
+wday(extracted_date, label = TRUE)
+
+```
+## FIFA World Cup 2022 ##
+
+#### First load data for the FIFA World Cup 2022 matches
+
+Convert the date column to datetime in R in the Qatar timezone. 
+```{r}
+
+FIFA <- read.csv("fifa-world-cup-2022-ArabStandardTime.csv")
+#OlsonNames()
+
+Extracted_dates <- dmy_hm(FIFA$Date, tz = "Asia/Qatar") 
+Extracted_dates %>% head(3)
+
+```
+
+On what date is the final match taking place? 
+
+```{r}
+
+last_match <- max(Extracted_dates)
+last_match
+
+```
+
+Provide a countdown to the final match from this moment (number of hours, days, etc.).
+
+```{r}
+
+now <- now()
+countdown <- last_match - now
+as.period(countdown)
+
+```
+
+At what time in Berlin will the final match take place?
+
+```{r}
+
+with_tz(last_match, tzone = "UTC")
+
+```

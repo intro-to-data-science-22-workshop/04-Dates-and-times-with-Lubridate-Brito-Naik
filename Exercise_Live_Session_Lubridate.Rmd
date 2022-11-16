@@ -1,0 +1,134 @@
+---
+title: "Exercise - Dates and times with Lubridate"
+subtitle: "Live Session"
+output: 
+  html_document:
+    toc: TRUE
+    df_print: paged
+    number_sections: FALSE
+    highlight: tango
+    theme: lumen
+    toc_depth: 3
+    toc_float: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Welcome!
+
+In this session we are going to work with **DATES** and **TIMES** with the **LUBRIDATE** package!
+
+Why do we need a package for that?
+
+- Dates come in different forms and shapes:
+  - 01.09.2022
+  - 01/09/22
+  - 09-01-2022
+  - SEP-09-22
+  - September, 09, 2022
+  - 09 SEP 22
+  
+- Many details for dates and time:
+  - Lead years
+  - Daylight savings time (DST) 
+  - Time zones
+
+- For doing calculations with dates
+
+## Load packages for this exercise ## 
+
+```{r}
+
+library(lubridate)
+library(tidyverse)
+
+```
+
+## Date and time objects ## 
+
+How do we find out today's date?
+```{r}
+
+
+```
+
+How can we find out the current date and time?
+```{r}
+
+
+```
+
+How do we create one date and one datetime to show 12:00 pm on the 1st of August 2015?
+
+```{r}
+
+
+```
+
+How do we tell R these are dates? 
+
+"1956 Jun 20"
+```{r}
+
+
+
+```
+
+"14.07.2023"
+```{r}
+
+
+
+```
+How do we tell R this has a date and time?
+
+"14072003153000"
+```{r}
+
+
+
+```
+
+## Extracting components for date and time ##
+
+Extract the unabbreviated name of the month and the abbreviated day of the week for "14072003153000"
+
+```{r}
+
+
+```
+
+## FIFA World Cup 2022 ##
+
+#### First load data for the FIFA World Cup 2022 matches
+
+Convert the date column to datetime in R in the Qatar timezone. 
+```{r}
+
+
+```
+
+On what date is the final match taking place? 
+
+```{r}
+
+
+```
+
+Provide a countdown to the final match from this moment (number of hours, days, etc.).
+
+```{r}
+
+
+
+```
+
+At what time in Berlin will the final match take place?
+
+```{r}
+
+
+
+```
