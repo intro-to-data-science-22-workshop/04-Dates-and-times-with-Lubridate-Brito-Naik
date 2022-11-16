@@ -23,7 +23,7 @@ The goals of this session are to (1) equip you with conceptual knowledge about t
 ## Further resources
 
 - [Dates and Times Made Easy with lubridate](https://www.jstatsoft.org/article/view/v040i03)
-- [Lubridate cheatsheet] (https://lubridate.tidyverse.org/)
+- [Lubridate cheatsheet](https://lubridate.tidyverse.org/)
 - [Handling Datetimes in R with "lubridate" by RichardonData on YouTube](https://www.youtube.com/watch?v=VYAo69WdJZg)
 - [R for Data Science book - part on dates and times](https://r4ds.had.co.nz/dates-and-times.html)
 
